@@ -34,6 +34,6 @@ Copyright (C) 2020  Freeloo
  void kernel_boot(void) 
 {
 	terminal_initialize();
-	terminal_puts("Welcome to duck OS, an Os that i writr for fun and learn about OSdev");
+	terminal_puts("Welcome to duck OS, an kernel that i write for fun and learn about OS dev");
 	
 }
