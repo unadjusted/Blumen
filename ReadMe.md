@@ -15,7 +15,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ____________________________________________________________________________________________________
 ## Duck os
-Duck os is a little operating system that i write in C/ASM to have fun and learn about os dev.
+Duck os is a little kernel system that i write in C/ASM to have fun and learn about os dev.
 
 ## I am a dummies
 I am not a good prorammer, so, my os will probably never be safety and usable.
