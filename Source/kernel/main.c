@@ -34,6 +34,11 @@ Copyright (C) 2020  Freeloo
  void kernel_boot(void) 
 {
 	terminal_initialize();
-	terminal_puts("Welcome to duck OS, an kernel that i write for fun and learn about OS dev");
-	
+	terminal_putsline("Welcome to duck OS, an kernel that i write for fun and learn about OS dev \n");
+	terminal_putsline("      _            _       ____   _____ ");
+	terminal_putsline("     | |          | |     / __ \\ / ____|");
+	terminal_putsline("   __| |_   _  ___| | __ | |  | | (___  ");
+	terminal_putsline("  / _` | | | |/ __| |/ / | |  | |\\___ \\ ");
+	terminal_putsline(" | (_| | |_| | (__|   \\  | |__| |____) |");
+	terminal_putsline("  \\__,_|\\__,_|\\___|_|\\_\\  \\____/|_____/ ");
 }

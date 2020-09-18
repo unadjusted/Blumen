@@ -21,6 +21,7 @@ Copyright (C) 2020  Freeloo
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include "stdlib.h"
 
 
 enum vga_color {
@@ -52,14 +53,7 @@ static inline uint16_t vga_entry(unsigned char uc, uint8_t color)
 	return (uint16_t) uc | (uint16_t) color << 8;
 }
  
-size_t strlen(const char* str) 
-{
-	size_t len = 0;
-	while (str[len])
-		len++;
-	return len;
-}
- 
+
 static const size_t VGA_WIDTH = 80;
 static const size_t VGA_HEIGHT = 25;
  
@@ -72,7 +66,7 @@ void terminal_initialize(void)
 {
 	terminal_row = 0;
 	terminal_column = 0;
-	terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
+	terminal_color = vga_entry_color(VGA_COLOR_WHITE, VGA_COLOR_BLUE);
 	terminal_buffer = (uint16_t*) 0xB8000;
 	for (size_t y = 0; y < VGA_HEIGHT; y++) {
 		for (size_t x = 0; x < VGA_WIDTH; x++) {
@@ -93,16 +87,19 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 	terminal_buffer[index] = vga_entry(c, color);
 }
  
-void terminal_putchar(char c) 
+void terminal_putchar(char c)
 {
-	terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
-	if (++terminal_column == VGA_WIDTH) {
-		terminal_column = 0;
-		if (++terminal_row == VGA_HEIGHT)
-			terminal_row = 0;
-	}
+    if(terminal_column == VGA_WIDTH || c == '\n'){
+        terminal_column = 0;
+        if(terminal_row == VGA_HEIGHT-1){
+            terminal_row = 0;
+        } else {
+            terminal_row++;
+        }
+    }
+    if(c == '\n') return;
+    terminal_putentryat(c, terminal_color, terminal_column++, terminal_row);
 }
- 
 void terminal_write(const char* data, size_t size) 
 {
 	for (size_t i = 0; i < size; i++)
@@ -121,4 +118,9 @@ void terminal_putsline(const char* data)
 {
 terminal_puts(data);
 terminal_endl();
+}
+
+void printf (char *data, ...)
+{
+//i will add a printf function here later 
 }
