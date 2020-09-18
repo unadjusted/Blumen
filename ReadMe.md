@@ -17,7 +17,7 @@ ________________________________________________________________________________
 ## Duck os
 Duck os is a little kernel system that i write in C/ASM to have fun and learn about os dev.
 
-## I am a dummies
+## I am a begginer
 I am not a good prorammer, so, my os will probably never be safety and usable.
 
 ## GNU grub source code 
