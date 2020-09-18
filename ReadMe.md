@@ -1,7 +1,7 @@
 
     Copyright (C) 2020  Freeloo
 
-    This program is free software: you can redistribute it and/or modify
+    This file is a part of DuckOS: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
@@ -20,3 +20,5 @@ Duck os is a little operating system that i write in C/ASM to have fun and learn
 ## I am a dummies
 I am not a good prorammer, so, my os will probably never be safety and usable.
 
+## GNU grub source code 
+the bootloader that i use, GNU grub, is licensed under the GNU gpl that requires that i publish the source code corresponding to the software (here, GNU grub 2.02), so, i have put a file, grub-2.02.tar.gz that containing the source code GNU Grub
