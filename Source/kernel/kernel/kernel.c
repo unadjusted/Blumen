@@ -17,8 +17,8 @@ Copyright (C) 2020  Freeloo
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#include "../headers/functions/"
-#include "../arch/i386/*.h"
+#include "../headers/functions/stdfunc.h"
+#include "../arch/i386/.h"
 #if defined(__linux__)
 #error "You must using a cross compiler !"
 #endif
