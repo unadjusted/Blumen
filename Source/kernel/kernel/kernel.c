@@ -18,7 +18,8 @@ Copyright (C) 2020  Freeloo
 #include <stddef.h>
 #include <stdint.h>
 #include "../headers/functions/stdfunc.h"
-#include "../arch/i386/.h"
+#include "../arch/i386/stdout.h"
+#include "../arch/i386/vga.h"
 #if defined(__linux__)
 #error "You must using a cross compiler !"
 #endif
@@ -29,7 +30,7 @@ Copyright (C) 2020  Freeloo
  void kernel_boot(void) 
 {
 	terminal_initialize();
-	terminal_putsline("Welcome to duck OS, an kernel that i write for fun and learn about OS dev \n");
+	terminal_putsline("Welcome to blumen OS, an kernel that i write for fun and learn about OS dev \n");
 	terminal_putsline("      _            _       ____   _____ ");
 	terminal_putsline("     | |          | |     / __ \\ / ____|");
 	terminal_putsline("   __| |_   _  ___| | __ | |  | | (___  ");
