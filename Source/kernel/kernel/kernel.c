@@ -1,7 +1,7 @@
 /*
 Copyright (C) 2020  Freeloo
 
-    This file is a part of duckOS : you can redistribute it and/or modify
+    This file is a part of Blumen OS : you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
@@ -28,6 +28,5 @@ Copyright (C) 2020  Freeloo
 
  void kernel_boot(void) 
 {
-	
-	terminal_putchar('A', 1);
+	puts("Here is blumenOS, a little kernel write in C !");
 };
