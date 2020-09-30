@@ -1,4 +1,4 @@
 To build the OS :
 1-follow this tutorial to build a gcc cross compiler (later i will create a sh for, but i am to lazy for the moment)
 2-run ./Source/builder.sh (i will make a makefile later)
-3-you can run ./Binary/run.sh to run with qemu 
+3-you can run ./Binary/run.sh to the run the OS with qemu 
