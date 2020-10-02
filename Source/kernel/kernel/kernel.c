@@ -28,5 +28,6 @@ Copyright (C) 2020  Freeloo
 
  void kernel_boot(void) 
 {
-	puts("Here is blumenOS, a little kernel write in C !");
+	puts("Here is blumenOS, a little kernel write in C ! \n");
+    puts("and it go back to line !");
 };

@@ -21,13 +21,23 @@ Copyright (C) 2020  Freeloo
 #include <stdint.h>
 #include <stdbool.h>
 #include "../../headers/functions/stdfunc.h"
-int place = 0; 
+
+int collumn = 0;
+int line = 0;
 void putchar(char data)
 {
+int place = collumn*line;
 char *out = (char *) 0x000B8000;
+if(data!='\n')
+{
 out[place] = data;
 out[++place] = 0x0A;
-place++;
+collumn++;
+}
+else
+{
+    line++;
+}
 }
 void puts(char *data)
 {
