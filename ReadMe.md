@@ -20,8 +20,3 @@ BlumenOS is a little kernel system that i write in C/ASM to have fun and learn a
 ## I am a begginer
 I am not a good prorammer, so, my os will probably never be safety and usable.
 
-## GNU grub source code 
-the bootloader that i use, GNU grub, is licensed under the GNU gpl that requires that i publish the source code corresponding to the software (here, GNU grub 2.02), so, i have put a file, grub-2.02.tar.gz that containing the source code GNU Grub
-
-## Move Name
-I have recently change the name from duckOS to blumenOS, but i have not any other screenshoot than this one with write blumenOS, so i have not change it
