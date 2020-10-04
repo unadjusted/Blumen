@@ -21,5 +21,5 @@ BlumenOS is a little kernel system that i write in C/ASM to have fun and learn a
 I am not a good prorammer, so, my os will probably never be safety and usable.
 ________________________________________________________________________________________________________
 
-Thank to the discord server [DevSE]https://discord.gg/NegTzt and his member to his help
+Thank to the discord server [DevSE] (https://discord.gg/NegTzt) and his member to his help
 
