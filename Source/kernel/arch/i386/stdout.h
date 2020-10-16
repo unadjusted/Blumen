@@ -34,17 +34,10 @@ void putchar(char data)
     }
    else
     {
-        if (place == 1999)
-        {
-            for (int i=0; i==3998; i++)
-            {
-                out[i]=0;
-            }
-        }
-place = (l*80+c)*2;
-out[place]=data;
-out[++place]=0x02;
-c++;
+        place = (l*80+c)*2;
+    out[place]=data;
+    out[++place]=0x02;
+    c++;
     }
 
 }

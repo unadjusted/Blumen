@@ -19,6 +19,7 @@ Copyright (C) 2020  Paul Freland
 #include "../headers/functions/stdfunc.h"
 #include "../arch/i386/stdout.h"
 #include "../arch/i386/serial.h"
+#include "../arch/i386/gdt.h"
 #if defined(__linux__)
 #error "You must using a cross compiler !"
 #endif
@@ -28,9 +29,9 @@ Copyright (C) 2020  Paul Freland
 
  void kernel_boot(void) 
 {
-    serial_puts("Here is blumenOS, a little kernel write in C !");
-   
-    serial_puts("you can write text to print him on the screen");
+    init_gdt();
+    serial_puts("Gdt is OK \n");
+    serial_puts("You can write text to print him on the screen \n");
     puts("Here is BlumenOS, a little kernel write in C !");
      serial_putchar('\n');
     for(;;)
