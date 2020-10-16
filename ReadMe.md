@@ -20,9 +20,6 @@ BlumenOS is a little kernel system that i write in C/ASM to have fun and learn a
 ## I am a begginer
 I am not a good prorammer, so, my os will probably never be safety and usable.
 
-## GNU grub source code 
-the bootloader that i use, GNU grub, is licensed under the GNU gpl that requires that i publish the source code corresponding to the software (here, GNU grub 2.02), so, i have put a file, grub-2.02.tar.gz that containing the source code GNU Grub
-
 ## NOW :
  Actually, the OS read char from the serial port and print them in the frame buffer.
  Active the Detach tab and select the serial0 screen, or add the -serial stdio in the run command line.
