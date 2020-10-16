@@ -13,4 +13,4 @@
 #    You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #!/bin/bash
-qemu-system-i386 -cdrom ../Binary/BlumenOS.iso -m 2M 
+qemu-system-i386 -cdrom ../Binary/BlumenOS.iso -m 2M -serial stdio
