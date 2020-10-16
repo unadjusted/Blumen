@@ -15,8 +15,10 @@
 #!/bin/bash
 export PATH="$PATH:$HOME/opt/cross/bin"
 i686-elf-as ./boot/boot.asm -o 
+nasm -f elf32 ./kernel/arch/i386/gdt.s -o ../Binary/asm-gdt.o
+i686-elf-gcc -c ./kernel/arch/i386/gdt.c -o ../Binary/gdt.o -std=gnu99 -O2 -ffreestanding -Wall -Wextra
 i686-elf-gcc -c  ./kernel/kernel/kernel.c  -o ../Binary/kernel.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
-i686-elf-gcc -T ./kernel/linker.ld -o ../Binary/BlumenOS.bin -ffreestanding -O2 -nostdlib ../Binary/boot.o ../Binary/kernel.o -lgcc
+i686-elf-gcc -T ./kernel/linker.ld -o ../Binary/BlumenOS.bin -ffreestanding -O2 -nostdlib ../Binary/boot.o ../Binary/kernel.o ../Binary/gdt.o ../Binary/asm-gdt.o -lgcc
 cp ../Binary/BlumenOS.bin ../Binary/isodir/boot/BlumenOS.bin
 grub-mkrescue -o ../Binary/BlumenOS.iso ../Binary/isodir
 ../Binary/run.sh
