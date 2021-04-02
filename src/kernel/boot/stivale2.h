@@ -1,4 +1,4 @@
-// Copyright 2019, 2020, 2021 mintsuki and contributors.
+/* Copyright 2019, 2020, 2021 mintsuki and contributors.*/
 
 #ifndef __STIVALE__STIVALE2_H__
 #define __STIVALE__STIVALE2_H__
