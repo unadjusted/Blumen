@@ -2,7 +2,6 @@
 #include <stddef.h>
 
 #include "stivale2.h"
-#include "../devices/fb.h"
 #include "../kernel.h"
 
 int boot(struct stivale2_struct stivale2_struct);
