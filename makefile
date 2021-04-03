@@ -1,13 +1,15 @@
 # Copyright 2019, 2020, 2021 mintsuki and contributors.
 
-TARGET := blumen.bin
+BIN := bin/iso/blumen.bin
+ISO := bin/blumen.iso
+
 
 CC = x86_64-elf-gcc
 
 CFLAGS = -Wall -Wextra -O2 -pipe -ansi -ffreestanding
 
 LDINTERNALFLAGS := \
-	-T linker.ld    \
+	-T src/linker.ld    \
 	-nostdlib      \
 	-ffreestanding \
 
@@ -28,13 +30,15 @@ OBJ    := $(CFILES:.c=.o)
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(ISO)
 
-$(TARGET): $(OBJ)
+$(ISO): $(OBJ)
+
+$(BIN): $(OBJ)
 	$(CC) $(LDINTERNALFLAGS) $(OBJ) -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INTERNALCFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(TARGET) $(OBJ)
+	rm -rf $(BIN) $(OBJ)
