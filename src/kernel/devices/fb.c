@@ -11,7 +11,7 @@ char *frame_buffer = (char *) 0x000B8000;
 void putchar(char str)
 {
     frame_buffer[place]=str;
-    place++;
+    place+=2;
 }
 
 void puts(char *str)
