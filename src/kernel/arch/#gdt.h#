@@ -35,8 +35,8 @@ struct segment kernel_code =
   .low_limit = 0xFFFF,
   .low_base= 0x0000,
   .base = 0x00,
-  .flag = 0x01011001,
-  .high_limit = 0xF4,
+  .flag = 0b100110101,
+  .high_limit = 0xF5,
   .high_base = 0x00
 };
 
@@ -45,8 +45,29 @@ struct segment kernel_data =
   .low_limit = 0xFFFF,
   .low_base = 0x0000,
   .base = 0x00,
-  .flag = 0x01010001,
-  .high_limit = 0xF4,
+  .flag = 0b10010010,
+  .high_limit = 0xF5,
   .high_base = 0x00
 };
+
+struct segment user_code =
+{
+  .low_limit = 0xFFFF,
+  .low_base = 0x0000,
+  .base = 0x00,
+  .flag = 0b11111010,
+  .high_limit=0xF,
+  .high_base = 0x00
+};
+
+struct segment user_data =
+{
+  .low_limit = 0xFFFF,
+  .low_base = 0x0000,
+  .base = 0x00,
+  .flag = 0b11110010,
+  .high_limit = 0xF0,
+  .high_base = 0x00
+}
+
 #endif
