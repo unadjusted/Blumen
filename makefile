@@ -6,9 +6,10 @@ ROOT := bin/iso
 LIMINE := limine-cd.bin
 
 CC = x86_64-elf-gcc
+ASM = nasm
 XISO = xorriso
 
-
+ASMFLAGS = -f elf64
 CFLAGS = -Wall -Wextra -O2 -pipe -ansi -ffreestanding
 XISOFLAGS = -as mkisofs -b $(LIMINE) -no-emul-boot -boot-load-size 4 -boot-info-table $(ROOT)
 
@@ -16,7 +17,7 @@ LDINTERNALFLAGS := \
 	-T src/linker.ld    \
 	-nostdlib      \
 	-shared        \
-	-pie -fno-pic -fpie \
+	-fno-pic  \
 	-z max-page-size=0x1000
 
 INTERNALCFLAGS  :=       \
@@ -33,6 +34,8 @@ INTERNALCFLAGS  :=       \
 
 
 CFILES := $(shell find ./ -type f -name '*.c')
+ASMFILES := $(shell find ./ -type f -name '*.s')
+ASMOBJ := $(ASMFILES:.s=.asm.o)
 OBJ    := $(CFILES:.c=.o)
 
 .PHONY: all clean bin
@@ -41,12 +44,16 @@ all: $(ISO)
 
 $(ISO): $(BIN)
 	$(XISO) $(XISOFLAGS) -o $@
-
-$(BIN): $(OBJ)
-	$(CC) $(LDINTERNALFLAGS) $(OBJ) -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) $(INTERNALCFLAGS) -c $< -o $@
+$(BIN): $(OBJ) $(ASMOBJ)
+	$(CC) $(LDINTERNALFLAGS) $(OBJ) $(ASMOBJ) -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INTERNALCFLAGS) -c $< -o $@
 
+%.asm.o: %.s
+	$(ASM) $(ASMFLAGS) $(ASMFILES) -o $@
+
 clean:
-	rm -rf $(BIN) $(OBJ) $(ISO)
+	rm -rf $(BIN) $(OBJ) $(ISO) $(ASMOBJ)
