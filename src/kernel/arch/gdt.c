@@ -3,6 +3,7 @@
 #include "gdt.h"
 
 segment gdt[5];
+segment_pointer ptr;
 
 segment null_segment =
 {
@@ -61,4 +62,8 @@ segment user_data =
   gdt[2] = kernel_data;
   gdt[3] = user_code;
   gdt[4] = user_data;
+  ptr.base = (uintptr_t)&gdt[0];
+  ptr.limit = sizeof(gdt)- 1;
+  gdt_flush((uintptr_t)&ptr);
+  serial_puts(0x3F8, "-->GDT successfully initialized \n");
 };

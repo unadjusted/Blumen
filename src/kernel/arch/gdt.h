@@ -7,9 +7,9 @@ void init_gdt (void);
 
 typedef struct __attribute__((packed))
 {
-  uint16_t size;
-  uint64_t adress;
-}segment_register ;
+  uint16_t base;
+  uint64_t limit;
+}segment_pointer;
 
 typedef struct __attribute__((packed))
 {
