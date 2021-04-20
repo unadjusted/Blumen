@@ -3,6 +3,8 @@
 
 #include "stivale2.h"
 #include "../kernel.h"
+#include "../devices/serial.h"
+#include "../arch/gdt.h"
 
 int boot(struct stivale2_struct stivale2_struct);
 uint8_t stack[4096];
@@ -18,6 +20,8 @@ struct stivale2_header header =
 
 int boot(struct stivale2_struct stivale2_struct)
 {
+    init_serial(COM1);
+    init_gdt();
     kmain();
     return(0);
 }
