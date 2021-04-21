@@ -20,6 +20,7 @@ struct stivale2_header header =
 
 int boot(struct stivale2_struct stivale2_struct)
 {
+  
     init_serial(COM1);
     init_gdt();
     kmain();
