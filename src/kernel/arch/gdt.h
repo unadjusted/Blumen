@@ -13,8 +13,8 @@ void init_gdt (void);
 
 typedef struct __attribute__((packed))
 {
-  uint16_t base;
-  uint64_t limit;
+  uint16_t adress;
+  uint64_t size;
 }gdt_pointer;
 
 typedef struct __attribute__((packed))

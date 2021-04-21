@@ -68,8 +68,8 @@ segment user_data =
   gdt[2] = kernel_data;
   gdt[3] = user_code;
   gdt[4] = user_data;
-  gdtr.base = (uintptr_t)&gdt[0];
-  gdtr.limit = sizeof(gdt)- 1;
+  gdtr.adress = (uintptr_t)&gdt[0];
+  gdtr.size = sizeof(gdt)- 1;
   serial_puts(COM1, "Loading GDT... \n");
   gdtr_init((uintptr_t)&gdtr);
   serial_puts(COM1, "-->GDT successfully initialized \n");
