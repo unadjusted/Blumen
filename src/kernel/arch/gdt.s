@@ -1,17 +1,16 @@
-;; From devse.wiki (devse.wiki/x86_64/structures/gdt) 
-	
-[GLOBAL gdtr_init]
-gdtr_init:
+;; From devse.wiki (devse.wiki/x86_64/structures/gdt)
+[GLOBAL gdtr_install]
+gdtr_install: 
     lgdt [rdi]
-    push rbp            
-    mov rbp, rsp        
+    push rbp
+    mov rbp, rsp
     push qword 0x10
-    push rbp            
-    pushf              
-    push qword 0x8      
-    push .trampoline    
+    push rbp
+    pushf
+    push .trampoline	
+    push qword 0x8
     iretq
-        
+
 .trampoline:
     pop rbp
     mov ax, 0x10

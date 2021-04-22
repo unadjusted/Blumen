@@ -61,6 +61,34 @@ segment user_data =
   .high_base = 0
 };
 
+void GDT_load()
+{
+    __asm__ volatile("lgdt %0"
+                     :
+                     : "m"(gdtr)
+                     : "memory");
+    __asm__ volatile(
+        "mov %%rsp, %%rax\n"
+        "push $0x10\n"
+        "push %%rax\n"
+        " pushf\n"
+        " push $0x8\n"
+        " push $1f\n"
+        " iretq\n"
+        " 1:\n"
+        " mov $0x10, %%ax\n"
+        "  mov %%ax, %%ds\n"
+        " mov %%ax, %%es\n"
+        "mov %%ax, %%ss\n"
+        "mov %%ax, %%fs\n"
+        "mov %%ax, %%gs\n"
+
+        :
+        :
+        : "rax", "memory");
+}
+
+
   void init_gdt(void)
 {
   gdt[0] = null_segment;
@@ -71,6 +99,6 @@ segment user_data =
   gdtr.adress = (uintptr_t)&gdt[0];
   gdtr.size = sizeof(gdt)- 1;
   serial_puts(COM1, "Loading GDT... \n");
-  gdtr_init((uintptr_t)&gdtr);
+  gdtr_install(&gdtr);
   serial_puts(COM1, "-->GDT successfully initialized \n");
 };

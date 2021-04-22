@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-#define KERNEL 0b00000000
-#define USER 0b01100000
+#define KERNEL 0b10000010
+#define USER 0b11100010
 #define CODE 0b00011000
 #define DATA 0b00010000
 #define GRANULARITY 0b00100000
