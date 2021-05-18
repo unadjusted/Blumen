@@ -9,8 +9,8 @@ gdtr_install:
     pushf
     push .trampoline	
     push qword 0x8
-    iretq
-
+    retf
+	
 .trampoline:
     pop rbp
     mov ax, 0x10

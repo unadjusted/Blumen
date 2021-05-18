@@ -3,9 +3,11 @@
 #include "../../lib/string.h"
 #include "fb.h"
 
+#define FRAME_BUFFER 0x000B8000
+
 int i;
 int place=0;
-char *frame_buffer = (char *) 0x000B8000;
+char *frame_buffer = (char *) FRAME_BUFFER;
 
 void putchar(char str)
 {

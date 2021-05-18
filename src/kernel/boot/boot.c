@@ -6,7 +6,10 @@
 #include "../devices/serial.h"
 #include "../arch/gdt.h"
 
-int boot(struct stivale2_struct stivale2_struct);
+int boot
+(
+    struct stivale2_struct stivale2_struct
+);
 uint8_t stack[4096];
 
 __attribute__((section(".stivale2hdr"), used))
@@ -18,11 +21,23 @@ struct stivale2_header header =
     .tags = NULL 
     };
 
-int boot(struct stivale2_struct stivale2_struct)
+int boot
+(
+    struct stivale2_struct stivale2_struct
+)
 {
   
-    init_serial(COM1);
-    init_gdt();
-    kmain();
-    return(0);
+    init_serial
+    (
+        COM1
+    );
+    init_gdt
+    (
+        void
+    );
+    kmain
+    (
+        void
+    );
+    return 0;
 }
