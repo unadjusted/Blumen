@@ -14,7 +14,7 @@ void init_gdt
 );
 void gdtr_install
 (
-    void
+    uintptr_t gdtr
 );
 
 typedef struct __attribute__((packed))
@@ -25,12 +25,11 @@ typedef struct __attribute__((packed))
 
 typedef struct __attribute__((packed))
 {
-  uint16_t low_limit;
-  uint16_t low_base;
-  uint8_t base;
-  uint8_t flag;
-  uint8_t high_limit : 4;
-  uint8_t granularity : 4;
-  uint8_t high_base;
+    uint16_t low_limit;
+    uint16_t low_base;
+    uint8_t base;
+    uint8_t access;
+    uint8_t granularity;
+    uint8_t high_base;
 }segment;
 #endif
