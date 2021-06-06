@@ -3,7 +3,7 @@
 #include "gdt.h"
 #include "../devices/serial.h"
 
-segment gdt[3];
+segment gdt[5];
 gdt_pointer gdtr;
 
 void init_gdt
@@ -19,6 +19,16 @@ void init_gdt
     gdt[2] = (segment)
     {
         .access = KERNEL | DATA,
+	.granularity = 0
+    };
+    gdt[3] = (segment)
+    {
+        .access = USER | CODE,
+	.granularity = 0b00100000
+    };
+    gdt[4] = (segment)
+    {
+        .access = USER | DATA,
 	.granularity = 0
     };
     gdtr.adress = (uint64_t)&gdt;
