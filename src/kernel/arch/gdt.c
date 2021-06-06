@@ -13,12 +13,12 @@ void init_gdt
 {
     gdt[1] = (segment)
     {
-        .access = 0b10011010,
+        .access = KERNEL | CODE,
 	.granularity = 0b00100000
     };
     gdt[2] = (segment)
     {
-        .access = 0b10010010,
+        .access = KERNEL | DATA,
 	.granularity = 0
     };
     gdtr.adress = (uint64_t)&gdt;
