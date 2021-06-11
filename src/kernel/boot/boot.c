@@ -1,10 +1,10 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#include "stivale2.h"
-#include "../kernel.h"
-#include "../devices/serial.h"
-#include "../arch/gdt.h"
+#include "src/includes/stivale2.h"
+#include "src/includes/kernel.h"
+#include "src/includes/serial.h"
+#include "src/includes/gdt.h"
 
 int boot
 (
@@ -33,11 +33,9 @@ int boot
     );
     init_gdt
     (
-        void
     );
     kmain
     (
-        void
     );
     return 0;
 }

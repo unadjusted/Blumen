@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
-#include "devices/fb.h"
-#include "devices/serial.h"
+#include "src/includes/fb.h"
+#include "src/includes/serial.h"
 
 void kmain
 (

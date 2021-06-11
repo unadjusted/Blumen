@@ -1,4 +1,4 @@
-#include "io.h"
+#include "src/includes/io.h"
 
 void 
 outb(uint16_t port, uint8_t val)
@@ -31,22 +31,6 @@ inw(uint16_t port)
                    : "Nd"(port) );
     return ret;
 }
-
-/*
-void 
-outd(uint16_t port, uint8_t val)
-{
-    asm volatile ( "outd %0, %1" : : "a"(val), "Nd"(port) );
-}
-uint32_t 
-ind(uint16_t port)
-{
-    uint32_t ret;
-    asm volatile ( "ind %1, %0"
-                   : "=a"(ret)
-                   : "Nd"(port) );
-    return ret;
-}*/
 
 void
 io_wait(void)

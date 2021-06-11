@@ -1,7 +1,7 @@
 #include <stdint.h>
 
-#include "gdt.h"
-#include "../devices/serial.h"
+#include "src/includes/gdt.h"
+#include "src/includes/serial.h"
 
 segment gdt[5];
 gdt_pointer gdtr;

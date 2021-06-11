@@ -17,17 +17,20 @@
  * along with Navy.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _DEVICE_IO_H_
-#define _DEVICE_IO_H_
+#ifndef _DEVICE_SERIAL_H_
+#define _DEVICE_SERIAL_H_
 
-#include <stdint.h>
+enum PORT
+{
+    COM1 = 0x3f8,
+    COM2 = 0x2f8,
+    COM3 = 0x3e8,
+    COM4 = 0x2e8
+};
 
-void outb(uint16_t port, uint8_t val);
-uint8_t inb(uint16_t port);
-void outw(uint16_t port, uint16_t val);
-uint16_t inw(uint16_t port);
-void outd(uint16_t port, uint8_t val);
-uint32_t ind(uint16_t port);
-void io_wait(void);
+void init_serial(enum PORT);
+void putc_serial(enum PORT, char);
+void serial_puts(enum PORT, const char *);
 
-#endif /* !_DEVICE_IO_H_ */
+
+#endif /* !_DEVICE_SERIAL_H_ */

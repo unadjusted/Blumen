@@ -20,10 +20,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "serial.h"
-#include "io.h"
+#include "src/includes/serial.h"
+#include "src/includes/io.h"
 
-void 
+void
 init_serial(enum PORT port)
 {
     outb(port + 1, 0x00);   
