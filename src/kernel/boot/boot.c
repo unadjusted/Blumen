@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#include "src/includes/stivale2.h"
+#include "stivale/stivale2.h"
 #include "src/includes/kernel.h"
 #include "src/includes/serial.h"
 #include "src/includes/gdt.h"
