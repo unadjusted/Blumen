@@ -10,7 +10,7 @@ ASM = nasm
 XISO = xorriso
 
 ASMFLAGS = -f elf64
-CFLAGS = -Wall -Wextra -O2 -pipe -ansi -ffreestanding
+CFLAGS = -Wall -Wextra -O3 -pipe -ansi -ffreestanding -g3
 XISOFLAGS = -as mkisofs -b $(LIMINE) -no-emul-boot -boot-load-size 4 -boot-info-table $(ROOT)
 
 LDINTERNALFLAGS := \
@@ -33,7 +33,7 @@ INTERNALCFLAGS  :=       \
 	-mno-red-zone
 
 
-CFILES := $(shell find ./ -type f -name '*.c')
+CFILES := $(shell find ./src -type f -name '*.c')
 ASMFILES := $(shell find ./ -type f -name '*.s')
 ASMOBJ := $(ASMFILES:.s=.asm.o)
 OBJ    := $(CFILES:.c=.o)

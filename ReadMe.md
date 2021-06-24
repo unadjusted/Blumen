@@ -6,5 +6,8 @@ My own from scratch kernel
 - Bootloader : Limine (with stivale2)
 - Language : C (ANSI)
 
+## Implemented :
+* VGA Frame buffer
+
 ## Todo :
 * Everything 
