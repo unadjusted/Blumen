@@ -1,6 +1,6 @@
 # Blumen 
 
-My own from scratch kernel
+Little Kernel
 
 - arch : x86_64
 - Bootloader : Limine (with stivale2)
@@ -8,6 +8,7 @@ My own from scratch kernel
 
 ## Implemented :
 * VGA Frame buffer
+* Simple GDT
 
 ## Todo :
 * Everything 
